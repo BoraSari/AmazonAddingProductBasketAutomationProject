@@ -10,6 +10,7 @@ from AmazonPages.Datas import base_url
 from  AmazonPages.AmazonMainPage import AmazonMainPage
 from  AmazonPages.ProductDetailsPage import  ProductDetails
 from  AmazonPages.ProductResultPage import ProductResultPage
+from  AmazonPages.Datas import selected_product
 
 @pytest.fixture
 def driver():
@@ -24,12 +25,12 @@ def driver():
 
 def test_product_search(driver):
   main_page = AmazonMainPage(driver)
-  main_page.search_product("Gaming Laptop")
+  main_page.search_product(selected_product)
 
 
 def test_click_product(driver):
    main_page = AmazonMainPage(driver)
-   main_page.search_product("Gaming Laptop")
+   main_page.search_product(selected_product)
    result_page = ProductResultPage(driver)
    details_page = ProductDetails(driver)
    details_page.accept_cookie_section()
@@ -45,7 +46,7 @@ def test_click_product(driver):
 
 def test_adding_product_in_basket(driver):
   main_page = AmazonMainPage(driver)
-  main_page.search_product("Gaming Laptop")
+  main_page.search_product(selected_product)
   details_page = ProductDetails(driver)
   details_page.accept_cookie_section()
   result_page = ProductResultPage(driver)
