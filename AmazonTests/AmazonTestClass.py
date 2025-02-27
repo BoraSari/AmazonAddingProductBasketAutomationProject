@@ -53,14 +53,14 @@ def test_adding_product_in_basket(driver):
   result_page.click_product_image()
   details_page.click_add_to_card_button()
 
-  ##Product Price
+  ##Adding Product Basket Check
   adding_basket_message = details_page.get_adding_basket_message()
   adding_basket_message_text = details_page.get_adding_basket_message_text()
   expected_message = "Sepete eklendi"
   assert adding_basket_message.is_displayed()
   assert  expected_message.__eq__(adding_basket_message),f"f expected_result = {expected_message},actual_result = {adding_basket_message}"
 
-  ##Count Of Basket Number
+  ##Count Of Basket Number Check
   basket_number = details_page.get_count_of_product_for_basket()
   basket_number_text = details_page.get_count_of_product_for_basket_text()
   print(basket_number_text)
